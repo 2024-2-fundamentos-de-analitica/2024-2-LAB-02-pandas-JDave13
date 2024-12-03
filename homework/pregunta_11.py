@@ -22,3 +22,10 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
+    import pandas as pd
+    new_table2 = pd.read_csv('files/input/tbl1.tsv', sep='\t')
+    new_table2 = new_table2.sort_values(by=['c0', 'c4'])
+    new_table2 = new_table2.groupby('c0')['c4'].apply(lambda x: ','.join(x.astype(str)))
+    return new_table2.reset_index()
+    return new_table2.reset_index()
+    return new_table2
